@@ -1,15 +1,11 @@
 [project]
-name = "kafka-fundamentals"
+name = "wikipedia"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "confluent-kafka[avro,json,rules,schemaregistry]>=2.13.0",
-    "jupyter>=1.1.1",
-]
-
-[tool.uv.workspace]
-members = [
-    "wikipedia",
+    "requests-sse>=0.5.2",
+    "sseclient>=0.0.27",
 ]

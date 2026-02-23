@@ -24,7 +24,7 @@ class KafkaProducer:
                               json.dumps(message).encode("utf-8"), 
                               key=key,
                               callback=self.acknowledgement)
-        self.producer.poll(0)
+        self.producer.poll(timeout=0)
 
 
 class KafkaConsumer:
@@ -39,7 +39,7 @@ class KafkaConsumer:
     def consume_messages(self, process_message_callback: callable):
         try:
             while True:
-                msg = self.consumer.poll(1.0)
+                msg = self.consumer.poll(timeout=1.0)
                 if msg is None:
                     continue
                 if msg.error():
